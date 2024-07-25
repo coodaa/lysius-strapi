@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landingpage_images",
+  "info": {
+    "singularName": "landingpage-image",
+    "pluralName": "landingpage-images",
+    "displayName": "LandingpageImage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
