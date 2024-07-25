@@ -1,7 +1,3 @@
-"use strict";
-
-console.log("landingpageimage.js file is loaded");
-
 const { createClient } = require("@supabase/supabase-js");
 
 const supabaseUrl = process.env.SUPABASE_API_URL;
@@ -11,14 +7,37 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 module.exports = {
   lifecycles: {
     async afterCreate(event) {
-      console.log("Lifecycle afterCreate triggered");
       const { result } = event;
-      console.log("Event result afterCreate:", result);
+
+      if (result.image && result.image.url) {
+        const { url } = result.image;
+        const { error } = await supabase
+          .from("landingpage_images")
+          .insert({ image_url: url, id: result.id });
+
+        if (error) {
+          console.error("Error inserting image URL into Supabase:", error);
+        } else {
+          console.log("Successfully inserted image URL into Supabase.");
+        }
+      }
     },
     async afterUpdate(event) {
-      console.log("Lifecycle afterUpdate triggered");
       const { result } = event;
-      console.log("Event result afterUpdate:", result);
+
+      if (result.image && result.image.url) {
+        const { url } = result.image;
+        const { error } = await supabase
+          .from("landingpage_images")
+          .update({ image_url: url })
+          .eq("id", result.id);
+
+        if (error) {
+          console.error("Error updating image URL in Supabase:", error);
+        } else {
+          console.log("Successfully updated image URL in Supabase.");
+        }
+      }
     },
   },
 };
