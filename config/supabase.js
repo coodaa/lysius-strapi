@@ -1,8 +1,5 @@
-const { createClient } = require("@supabase/supabase-js");
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.SUPABASE_API_URL;
+const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_API_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-module.exports = { supabase };
-// sdfjsdf;onrejectionhandled;sdfoj
+export const supabase = createClient(supabaseUrl, supabaseKey);
