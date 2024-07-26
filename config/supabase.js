@@ -5,3 +5,4 @@ const supabaseKey = process.env.SUPABASE_API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 module.exports = { supabase };
+// sdfjsdf;onrejectionhandled;sdfoj
