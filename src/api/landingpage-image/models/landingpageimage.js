@@ -1,3 +1,5 @@
+// Pfad: src/api/landingpage-image/models/landingpageimage.js
+
 "use strict";
 
 const { createClient } = require("@supabase/supabase-js");
