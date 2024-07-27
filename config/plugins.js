@@ -22,7 +22,7 @@ module.exports = ({ env }) => ({
       accessToken: env("NETLIFY_ACCESS_TOKEN"),
       sites: [
         {
-          name: "meek-pixie-fd1a94", // Ihr Site-Name
+          name: "meek-pixie-fd1a94", // Ihr Site-Name auf Netlify
           id: env("NETLIFY_SITE_ID"),
           buildHook: env("NETLIFY_BUILD_HOOK"),
         },
